@@ -23,7 +23,7 @@ volume_db = -10.0
 autoplay = true
 
 [node name="Background" type="Sprite" parent="."]
-position = Vector2( 6.58521, 3.42434 )
+position = Vector2( 0.113602, 0.0277739 )
 texture = ExtResource( 1 )
 centered = false
 region_enabled = true
