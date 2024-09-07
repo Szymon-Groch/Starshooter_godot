@@ -6,6 +6,7 @@ var score = 0
 
 func _ready() -> void:
 	update_score_and_hud(0)
+	hud.update_lives($Player.hp)
 
 func spawn_laser(Laser, location) -> void:
 	var laser = Laser.instance()
@@ -30,3 +31,7 @@ func _on_enemy_died(_score):
 func update_score_and_hud(val):
 	score = val;
 	hud.update_score(score)
+
+
+func _on_Player_player_took_damage(hp_left) -> void:
+	hud.update_lives(hp_left)

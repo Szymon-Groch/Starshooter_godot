@@ -2,6 +2,7 @@ extends Area2D
 class_name Player
 
 signal spawn_laser(Laser, location)
+signal player_took_damage(hp_left)
 
 export (int) var speed = 300
 export (int) var hp = 3
@@ -32,5 +33,6 @@ func _on_Player_area_entered(area: Area2D) -> void:
 
 func take_damage(_damage):
 	hp -= _damage
+	emit_signal("player_took_damage", hp)
 	if hp <=0:
 		queue_free()
