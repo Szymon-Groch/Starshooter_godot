@@ -23,4 +23,4 @@ func take_damage(_damage):
 	hit_sound.play()
 	if hp <=0:
 		queue_free()
-		emit_signal("enemy_died", score)
+		emit_signal("enemy_died", score, global_position)

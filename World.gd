@@ -3,6 +3,7 @@ extends Node2D
 onready var hud = $UI_layer/HUD
 onready var enemy_spawner = $EnemySpawner
 onready var ui_layer = $UI_layer
+onready var explosion_effect = $EffectsLayer/Explosion
 
 var score = 0
 
@@ -29,8 +30,9 @@ func spawn_enemy(EnemyScene, location) -> void:
 func _on_DeadZone_area_entered(area: Area2D) -> void:
 	area.queue_free()
 
-func _on_enemy_died(_score):
+func _on_enemy_died(_score, location):
 	update_score_and_hud(score + _score)
+	create_explosion(location)
 
 func update_score_and_hud(val):
 	score = val;
@@ -41,8 +43,9 @@ func _on_Player_player_took_damage(hp_left) -> void:
 	hud.update_lives(hp_left)
 
 
-func _on_Player_player_died() -> void:
+func _on_Player_player_died(location) -> void:
 	#player runs out of lives = game over logic
+	create_explosion(location)
 	var timer = get_tree().create_timer(2)
 	yield(timer, "timeout")
 	game_over()
@@ -52,3 +55,7 @@ func game_over():
 	var game_over_menu = GameOver.instance()
 	ui_layer.add_child(game_over_menu)
 	game_over_menu.set_score(score)
+
+func create_explosion(location):
+	explosion_effect.global_position = location
+	explosion_effect.start()

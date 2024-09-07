@@ -3,7 +3,7 @@ class_name Player
 
 signal spawn_laser(Laser, location)
 signal player_took_damage(hp_left)
-signal player_died()
+signal player_died(location)
 
 export (int) var speed = 300
 export (int) var hp = 3
@@ -41,4 +41,4 @@ func take_damage(_damage):
 	emit_signal("player_took_damage", hp)
 	if hp <=0:
 		queue_free()
-		emit_signal("player_died")
+		emit_signal("player_died", global_position)
