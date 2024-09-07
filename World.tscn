@@ -18,7 +18,7 @@ region_rect = Rect2( 0, 0, 540, 960 )
 position = Vector2( 265.843, 861.786 )
 
 [node name="NormalEnemy" parent="." instance=ExtResource( 3 )]
-position = Vector2( 436.007, 86.9018 )
+position = Vector2( 98.8883, 388.062 )
 
 [node name="DiverEnemy" parent="." instance=ExtResource( 4 )]
 position = Vector2( 95.8917, 94.3934 )
