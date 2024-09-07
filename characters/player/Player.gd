@@ -30,7 +30,7 @@ func _on_Player_area_entered(area: Area2D) -> void:
 	if area.is_in_group("enemies"):
 		area.take_damage(damage)
 
-func take_damage(damage):
-	hp -= damage
+func take_damage(_damage):
+	hp -= _damage
 	if hp <=0:
 		queue_free()

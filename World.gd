@@ -13,3 +13,8 @@ func spawn_enemy(EnemyScene, location) -> void:
 	enemy.global_position = location
 	if enemy.has_signal("spawn_laser"):
 		enemy.connect("spawn_laser", self, "spawn_laser")
+
+
+func _on_DeadZone_area_entered(area: Area2D) -> void:
+	area.queue_free()
+	print("deleting"+area.name)
