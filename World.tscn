@@ -1,7 +1,9 @@
-[gd_scene load_steps=3 format=2]
+[gd_scene load_steps=5 format=2]
 
 [ext_resource path="res://assets/background.png" type="Texture" id=1]
 [ext_resource path="res://characters/player/Player.tscn" type="PackedScene" id=2]
+[ext_resource path="res://characters/enemies/NormalEnemy.tscn" type="PackedScene" id=3]
+[ext_resource path="res://characters/enemies/DiverEnemy.tscn" type="PackedScene" id=4]
 
 [node name="World" type="Node2D"]
 
@@ -14,3 +16,9 @@ region_rect = Rect2( 0, 0, 540, 960 )
 
 [node name="Player" parent="." instance=ExtResource( 2 )]
 position = Vector2( 265.843, 861.786 )
+
+[node name="NormalEnemy" parent="." instance=ExtResource( 3 )]
+position = Vector2( 436.007, 86.9018 )
+
+[node name="DiverEnemy" parent="." instance=ExtResource( 4 )]
+position = Vector2( 95.8917, 94.3934 )
