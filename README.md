@@ -1,5 +1,6 @@
 <h1>Star shooter</h1>
 Singleplayer shoot 'em up game in style of Galaga created in the Godot 3.33 game engine as part of [udemy course](https://www.udemy.com/course/godot-beginner-course/?couponCode=UPGRADE02223)
+
 ![image](https://github.com/user-attachments/assets/25f07f3b-b399-40c0-a5ba-44b7477a1868)
 
 Assets used were part of [udemy course](https://www.udemy.com/course/godot-beginner-course/?couponCode=UPGRADE02223)
