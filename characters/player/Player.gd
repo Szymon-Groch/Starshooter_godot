@@ -13,6 +13,8 @@ var input_vector = Vector2.ZERO
 var Laser = preload("res://projectiles/PlayerLaser.tscn")
 
 onready var muzzle = $Muzzle
+onready var hit_sound = $HitSound
+onready var laser_sound = $LaserSound
 
 func _physics_process(delta):
 	input_vector.x = Input.get_action_strength("move_right") - Input.get_action_strength("move_left") # -1 0 1 | -1 + 1 =0
@@ -26,6 +28,7 @@ func _physics_process(delta):
 
 	if Input.is_action_just_pressed("shoot"):
 		emit_signal("spawn_laser", Laser, muzzle.global_position)
+		laser_sound.play()
 
 func _on_Player_area_entered(area: Area2D) -> void:
 	if area.is_in_group("enemies"):
@@ -33,6 +36,7 @@ func _on_Player_area_entered(area: Area2D) -> void:
 
 func take_damage(_damage):
 	hp -= _damage
+	hit_sound.play()
 	emit_signal("player_took_damage", hp)
 	if hp <=0:
 		queue_free()
