@@ -1,11 +1,11 @@
 extends Area2D
 
-
+signal enemy_died(score)
 
 export (int) var speed = 150
 export (int) var hp = 1
 export (int) var damage = 1
-
+export (int) var score = 10
 
 	
 func _physics_process(delta): 
@@ -20,3 +20,4 @@ func take_damage(_damage):
 	hp -= _damage
 	if hp <=0:
 		queue_free()
+		emit_signal("enemy_died", score)
