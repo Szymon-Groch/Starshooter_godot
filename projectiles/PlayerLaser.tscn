@@ -10,6 +10,7 @@ height = 25.5943
 
 [node name="PlayerLaser" instance=ExtResource( 1 )]
 script = ExtResource( 3 )
+vertical_direction = -1
 
 [node name="Sprite" parent="." index="0"]
 texture = ExtResource( 2 )
