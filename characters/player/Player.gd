@@ -10,3 +10,6 @@ func _physics_process(delta):
 	
 	global_position.x += input_vector.x * speed * delta 
 	global_position.y += input_vector.y * speed * delta 
+	
+	global_position.x = clamp(global_position.x, 0, 540)
+	global_position.y = clamp(global_position.y, 0, 960)
